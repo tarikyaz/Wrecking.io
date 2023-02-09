@@ -6,4 +6,8 @@ public class InGameManager : Singleton<InGameManager>
 {
     public Joystick Joystick;
 
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
 }
