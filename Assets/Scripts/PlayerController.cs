@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     bool movmentUnlocked = false;
     private void FixedUpdate()
     {
+        if (carController ==null)
+        {
+            return;
+        }
         Transform camT = Camera.main.transform;
         if (joystick.IsHolding)
         {

@@ -1421,7 +1421,6 @@ GameObject:
   - component: {fileID: 2306668834613449022}
   - component: {fileID: 3848472970328852967}
   - component: {fileID: 8930236524976410301}
-  - component: {fileID: 8930236524976410300}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -1494,27 +1493,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8930236524976410300
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3725696906788790211}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.52240354, y: 0.3352831, z: 1.0420351}
-  m_Center: {x: -0.00000002379767, y: -0.04433117, z: -0.000041589657}
 --- !u!1 &3754548977346168818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,9 +1535,10 @@ GameObject:
   - component: {fileID: 3824947987320270572}
   - component: {fileID: 3824947987320270575}
   - component: {fileID: 3824947987320270574}
+  - component: {fileID: 71339828812331617}
   m_Layer: 0
   m_Name: CarController
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1580,7 +1559,7 @@ Transform:
   - {fileID: 5834104280482176522}
   - {fileID: 883186821064461197}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3824947987320270575
 MonoBehaviour:
@@ -1594,10 +1573,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e61613e44793d498d863a680441d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Coll: {fileID: 71339828812331617}
   rb: {fileID: 3824947987320270574}
   speed: 800
   distanceFromBall: 8
-  ballMovementSmoothness: 0.01
+  ballMovementSmoothness: 0.05
+  ballHitForce: 20
   wrackingBall: {fileID: 4823964875944301654}
   lineRenderer: {fileID: 7786330847074203118}
 --- !u!54 &3824947987320270574
@@ -1627,6 +1608,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!65 &71339828812331617
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824947987320270573}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.75, y: 3.0660443, z: 5.471291}
+  m_Center: {x: 0, y: 1.526406, z: -0.077091455}
 --- !u!1 &3885968977892909572
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,7 +2991,7 @@ GameObject:
   - component: {fileID: 7447051059517116847}
   - component: {fileID: 4665107106878596453}
   - component: {fileID: 5290472808353002921}
-  - component: {fileID: 7408976218710075196}
+  - component: {fileID: 3597552408045968181}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -3025,6 +3027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5290472808353002921}
+  coll: {fileID: 3597552408045968181}
 --- !u!33 &7447051059517116847
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3084,9 +3087,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6610499486723179696}
   serializedVersion: 4
-  m_Mass: 20
+  m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3101,10 +3104,10 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &7408976218710075196
-SphereCollider:
+--- !u!65 &3597552408045968181
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3122,7 +3125,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.9043434
+  m_Size: {x: 1.7981062, y: 1.8033946, z: 1.8086869}
   m_Center: {x: -0.00000020861626, y: 0, z: 0}
 --- !u!1 &6737368125395220858
 GameObject:
