@@ -209,6 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 657597014786872298}
+  - component: {fileID: 3067301843871403621}
   m_Layer: 0
   m_Name: CarObj
   m_TagString: Untagged
@@ -258,6 +259,26 @@ Transform:
   m_Father: {fileID: 3824947987320270572}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!95 &3067301843871403621
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174393181407463760}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a38b53d7788cd54b98fcb66a9cc2185, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &378730573137629525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,7 +1580,7 @@ Transform:
   - {fileID: 5834104280482176522}
   - {fileID: 883186821064461197}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3824947987320270575
 MonoBehaviour:
@@ -1581,6 +1602,7 @@ MonoBehaviour:
   ballHitForce: 20
   wrackingBall: {fileID: 4823964875944301654}
   lineRenderer: {fileID: 7786330847074203118}
+  carAnim: {fileID: 3067301843871403621}
 --- !u!54 &3824947987320270574
 Rigidbody:
   m_ObjectHideFlags: 0

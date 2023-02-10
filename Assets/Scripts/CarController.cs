@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -10,6 +12,7 @@ public class CarController : MonoBehaviour
     [SerializeField] float speed = 10, distanceFromBall, ballMovementSmoothness, ballHitForce = 10;
     [SerializeField] WrackingBall wrackingBall;
     [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] Animator carAnim;
     bool isDied = false;
     bool isMoving = false;
     private void OnEnable()
@@ -38,13 +41,46 @@ public class CarController : MonoBehaviour
     {
         lineRenderer.positionCount = 2;
         wrackingBall.SetCar(this);
+
     }
     public void Move(Vector3 dir)
     {
         if (!isDied)
         {
             isMoving = true;
-            rb.MoveRotation(Quaternion.LookRotation(dir.normalized));
+            Vector3 localDir = transform.InverseTransformDirection(dir);
+            Debug.Log("localDir.x " + localDir.x);
+            if (localDir.x > .05f)
+            {
+                if (carAnim.GetBool("Center"))
+                {
+                    carAnim.SetBool("Center", false);
+                    carAnim.speed = 0;
+                }
+                else
+                {
+                    carAnim.Play("SteerR", 0, Mathf.InverseLerp(0, 1, localDir.x));
+                }
+            }
+            else if (localDir.x < -.05f)
+            {
+                if (carAnim.GetBool("Center"))
+                {
+                    carAnim.SetBool("Center", false);
+                    carAnim.speed = 0;
+                }
+                else
+                {
+                    carAnim.Play("SteerL", 0, Mathf.InverseLerp(0, -1, localDir.x));
+                }
+            }
+            else
+            {
+                carAnim.SetBool("Center", true);
+                carAnim.speed = 1;
+            }
+            Quaternion targetRot = Quaternion.LookRotation(dir.normalized);
+            rb.MoveRotation(targetRot);
             rb.velocity = transform.forward * speed * Time.fixedDeltaTime;
         }
     }
