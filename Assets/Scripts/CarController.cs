@@ -79,7 +79,7 @@ public class CarController : MonoBehaviour
                 carAnim.speed = 1;
             }
             Quaternion targetRot = Quaternion.LookRotation(dir.normalized);
-            rb.MoveRotation(targetRot);
+            rb.MoveRotation(Quaternion.Lerp(rb.rotation, targetRot, speed * Time.fixedDeltaTime));
             rb.velocity = transform.forward * speed * Time.fixedDeltaTime;
         }
     }
