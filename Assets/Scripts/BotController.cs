@@ -7,42 +7,27 @@ using UnityEngine.AI;
 public class BotController : MonoBehaviour
 {
     [SerializeField] CarController carController;
-    [SerializeField] NavMeshAgent navMeshAgent;
     [SerializeField] float durationToChangeRandomPoint = 5;
     Transform targetT;
     float timer = 0;
-    private void OnEnable()
-    {
-        carController.OnKill += OnKill;
-    }
 
-    private void OnDisable()
-    {
-        carController.OnKill -= OnKill;
-
-    }
-    private void OnKill()
-    {
-        navMeshAgent.enabled = false;
-    }
-    void Start()
-    {
-        navMeshAgent.speed = 0;
-        navMeshAgent.angularSpeed = 0;
-    }
     private void FixedUpdate()
     {
+        if (carController.isDied)
+        {
+            return;
+        }
         Vector3 targetPos = Vector3.zero;
         if (targetT != null)
         {
             targetPos = targetT.position;
         }
         targetPos.y = 0;
-        if (targetPos != Vector3.zero && timer <= durationToChangeRandomPoint && navMeshAgent.isActiveAndEnabled && Vector3.Distance(targetPos, transform.position) > 5)
+        if (targetPos != Vector3.zero && timer <= durationToChangeRandomPoint && carController.NavMeshAgent.isActiveAndEnabled && Vector3.Distance(targetPos, transform.position) > 5)
         {
             timer += Time.fixedDeltaTime;
-            navMeshAgent.SetDestination(targetPos);
-            carController.Move(navMeshAgent.steeringTarget - transform.position);
+            carController.NavMeshAgent.SetDestination(targetPos);
+            carController.Move(carController.NavMeshAgent.steeringTarget - transform.position);
         }
         else
         {

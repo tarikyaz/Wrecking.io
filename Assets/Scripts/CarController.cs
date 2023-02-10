@@ -2,17 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CarController : MonoBehaviour
 {
     public Collider Coll;
+    public NavMeshAgent NavMeshAgent;
+    internal bool isDied { get; private set; }
     [SerializeField] Rigidbody rb;
     [SerializeField] float speed = 10, distanceFromBall, ballMovementSmoothness, ballHitForce = 10;
     [SerializeField] WrackingBall wrackingBall;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] Animator carAnim;
     [SerializeField] ParticleSystem smokeVFX;
-    bool isDied = false;
+
     bool isMoving = false;
     public Action OnKill;
     private void OnEnable()
@@ -41,6 +44,8 @@ public class CarController : MonoBehaviour
     {
         lineRenderer.positionCount = 2;
         wrackingBall.SetCar(this);
+        NavMeshAgent.speed = 0;
+        NavMeshAgent.angularSpeed = 0;
 
     }
     public void Move(Vector3 dir)
@@ -122,8 +127,9 @@ public class CarController : MonoBehaviour
     {
         if (!isDied)
         {
-            OnKill?.Invoke();
             isDied = true;
+            NavMeshAgent.enabled = false;
+            Destroy(NavMeshAgent);
             isMoving = false;
             wrackingBall.OnHitCar -= OnHitCar;
             lineRenderer.gameObject.SetActive(false);
@@ -132,6 +138,7 @@ public class CarController : MonoBehaviour
             rb.angularDrag = .0005f;
             rb.velocity = dir * ballHitForce;
             Destroy(gameObject, 2);
+            OnKill?.Invoke();
         }
     }
 }

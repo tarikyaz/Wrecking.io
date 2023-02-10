@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour
     Joystick joystick => InGameManager.Instance.Joystick;
     [SerializeField] CarController carController;
     bool movmentUnlocked = false;
+    private void Start()
+    {
+        carController.NavMeshAgent.enabled = false;
+    }
     private void FixedUpdate()
     {
         if (carController ==null)

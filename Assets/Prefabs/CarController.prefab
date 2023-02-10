@@ -6186,6 +6186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coll: {fileID: 71339828812331617}
+  NavMeshAgent: {fileID: 4031216791259431690}
   rb: {fileID: 3824947987320270574}
   speed: 800
   distanceFromBall: 8
@@ -6231,7 +6232,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3824947987320270573}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 4.48
   m_Speed: 3.5
