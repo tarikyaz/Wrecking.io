@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,23 @@ public class BotController : MonoBehaviour
 {
     [SerializeField] CarController carController;
     [SerializeField] NavMeshAgent navMeshAgent;
-    [SerializeField] Transform targetT;
+    [SerializeField] float durationToChangeRandomPoint = 5;
+    Transform targetT;
+    float timer = 0;
+    private void OnEnable()
+    {
+        carController.OnKill += OnKill;
+    }
+
+    private void OnDisable()
+    {
+        carController.OnKill -= OnKill;
+
+    }
+    private void OnKill()
+    {
+        navMeshAgent.enabled = false;
+    }
     void Start()
     {
         navMeshAgent.speed = 0;
@@ -15,11 +32,26 @@ public class BotController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        navMeshAgent.SetDestination(targetT.position);
-        if (Vector3.Distance(targetT.position, transform.position) > .1f)
+        Vector3 targetPos = Vector3.zero;
+        if (targetT != null)
         {
+            targetPos = targetT.position;
+        }
+        targetPos.y = 0;
+        if (targetPos != Vector3.zero && timer <= durationToChangeRandomPoint && navMeshAgent.isActiveAndEnabled && Vector3.Distance(targetPos, transform.position) > 5)
+        {
+            timer += Time.fixedDeltaTime;
+            navMeshAgent.SetDestination(targetPos);
             carController.Move(navMeshAgent.steeringTarget - transform.position);
         }
-
+        else
+        {
+            carController.Stop();
+            if (InGameManager.Instance != null)
+            {
+                targetT = InGameManager.Instance.botsManager.GetRandomPoint(targetT);
+                timer = 0;
+            }
+        }
     }
 }

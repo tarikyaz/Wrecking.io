@@ -14,6 +14,8 @@ public class WrackingBall : MonoBehaviour
     {
         carController = car;
         Physics.IgnoreCollision(coll, car.Coll);
+        transform.SetParent(null, true);
+        car.OnKill += () => Destroy(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
     {

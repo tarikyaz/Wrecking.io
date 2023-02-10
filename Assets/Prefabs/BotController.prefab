@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3824947987320270572, guid: 68592976a97ed914d83079b69f043d63, type: 3}
@@ -56,17 +55,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BotController
       objectReference: {fileID: 0}
+    - target: {fileID: 4031216791259431690, guid: 68592976a97ed914d83079b69f043d63, type: 3}
+      propertyPath: m_Radius
+      value: 2.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031216791259431690, guid: 68592976a97ed914d83079b69f043d63, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6855970539680163182, guid: 68592976a97ed914d83079b69f043d63, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3824947987320270573, guid: 68592976a97ed914d83079b69f043d63, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 4585444797019581050}
-    - targetCorrespondingSourceObject: {fileID: 3824947987320270573, guid: 68592976a97ed914d83079b69f043d63, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 3564921573760662846}
   m_SourcePrefab: {fileID: 100100000, guid: 68592976a97ed914d83079b69f043d63, type: 3}
 --- !u!114 &8671210200631133452 stripped
 MonoBehaviour:
@@ -97,27 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carController: {fileID: 8671210200631133452}
-  navMeshAgent: {fileID: 3564921573760662846}
-  targetT: {fileID: 0}
---- !u!195 &3564921573760662846
+  navMeshAgent: {fileID: 8841516053660362985}
+--- !u!195 &8841516053660362985 stripped
 NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4031216791259431690, guid: 68592976a97ed914d83079b69f043d63, type: 3}
+  m_PrefabInstance: {fileID: 5567190560605547491}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8671210200631133454}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 4.48
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4

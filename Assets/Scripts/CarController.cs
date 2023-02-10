@@ -14,6 +14,7 @@ public class CarController : MonoBehaviour
     [SerializeField] ParticleSystem smokeVFX;
     bool isDied = false;
     bool isMoving = false;
+    public Action OnKill;
     private void OnEnable()
     {
         wrackingBall.OnHitCar += OnHitCar;
@@ -33,7 +34,7 @@ public class CarController : MonoBehaviour
             Vector3 hitDir = car.transform.position - wrackingBall.transform.position;
             hitDir.Normalize();
             hitDir.y = 1;
-            car.Hit(hitDir);
+            car.Kill(hitDir);
         }
     }
     private void Start()
@@ -79,8 +80,15 @@ public class CarController : MonoBehaviour
                 carAnim.speed = 1;
             }
             Quaternion targetRot = Quaternion.LookRotation(dir.normalized);
-            rb.MoveRotation(Quaternion.Lerp(rb.rotation, targetRot, speed * Time.fixedDeltaTime));
+            rb.MoveRotation(Quaternion.Lerp(rb.rotation, targetRot, speed * Time.fixedDeltaTime * .015f));
             rb.velocity = transform.forward * speed * Time.fixedDeltaTime;
+            var pos = rb.position;
+            pos.y = 0;
+            rb.position = pos;
+        }
+        else
+        {
+            Stop();
         }
     }
     private void LateUpdate()
@@ -98,7 +106,7 @@ public class CarController : MonoBehaviour
             {
                 targetBallPos.y = 1;
             }
-            wrackingBall.rb.position = Vector3.Slerp(wrackingBall.rb.position, targetBallPos, t);
+            wrackingBall.rb.position = Vector3.Lerp(wrackingBall.rb.position, targetBallPos, t);
             lineRenderer.SetPosition(0, lineRenderer.transform.position);
             lineRenderer.SetPosition(1, wrackingBall.transform.position);
         }
@@ -110,10 +118,11 @@ public class CarController : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
     }
-    public void Hit(Vector3 dir)
+    public void Kill(Vector3 dir)
     {
         if (!isDied)
         {
+            OnKill?.Invoke();
             isDied = true;
             isMoving = false;
             wrackingBall.OnHitCar -= OnHitCar;
@@ -122,7 +131,7 @@ public class CarController : MonoBehaviour
             rb.mass = 5f;
             rb.angularDrag = .0005f;
             rb.velocity = dir * ballHitForce;
-            Destroy(gameObject, 10);
+            Destroy(gameObject, 2);
         }
     }
 }
