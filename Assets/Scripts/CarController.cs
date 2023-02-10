@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
-using UnityEditor.TerrainTools;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -13,6 +11,7 @@ public class CarController : MonoBehaviour
     [SerializeField] WrackingBall wrackingBall;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] Animator carAnim;
+    [SerializeField] ParticleSystem smokeVFX;
     bool isDied = false;
     bool isMoving = false;
     private void OnEnable()
@@ -47,9 +46,9 @@ public class CarController : MonoBehaviour
     {
         if (!isDied)
         {
+            smokeVFX.Emit(10);
             isMoving = true;
             Vector3 localDir = transform.InverseTransformDirection(dir);
-            Debug.Log("localDir.x " + localDir.x);
             if (localDir.x > .05f)
             {
                 if (carAnim.GetBool("Center"))
@@ -89,7 +88,7 @@ public class CarController : MonoBehaviour
         if (!isDied)
         {
             Vector3 targetBallPos = transform.TransformPoint(0, 0, -distanceFromBall);
-            float t = Time.fixedTime * ballMovementSmoothness + Vector3.Distance(targetBallPos, wrackingBall.rb.position) * .0135f;
+            float t = Time.fixedTime * ballMovementSmoothness;
             targetBallPos.y = wrackingBall.rb.position.y;
             if (targetBallPos.y > 2)
             {
@@ -109,6 +108,7 @@ public class CarController : MonoBehaviour
         isMoving = false;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+
     }
     public void Hit(Vector3 dir)
     {
