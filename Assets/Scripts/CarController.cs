@@ -9,6 +9,7 @@ public class CarController : MonoBehaviour
 {
     public Collider Coll;
     public NavMeshAgent NavMeshAgent;
+    public Action OnKill;
     internal bool isDied { get; private set; }
     [SerializeField] Rigidbody rb;
     [SerializeField] float speed = 10, distanceFromBall, ballMovementSmoothness, ballHitForce = 10;
@@ -19,10 +20,11 @@ public class CarController : MonoBehaviour
     [SerializeField] Sprite[] goodEmojiesArray, badEmojiesArray;
     [SerializeField] Image Emoji_Image;
     [SerializeField] float showingEmojiDuration = 3;
+    [SerializeField] Renderer bodyRenderer , characterRenderer;
     Coroutine showingEmojiCoroutine;
     bool isMoving = false;
-    public Action OnKill;
     WaitForFixedUpdate fixedUpdate;
+    
     private void OnEnable()
     {
         wrackingBall.OnHitCar += OnHitCar;
@@ -83,6 +85,19 @@ public class CarController : MonoBehaviour
         NavMeshAgent.angularSpeed = 0;
         fixedUpdate = new WaitForFixedUpdate();
         Emoji_Image.gameObject.SetActive(false);
+        var ms = bodyRenderer.materials;
+        foreach (var m in ms)
+        {
+            m.color = new Color(UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), 1);
+            bodyRenderer.material = m;
+        }
+
+        ms = characterRenderer.materials;
+        foreach (var m in ms)
+        {
+            m.color = new Color(UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), 1);
+            bodyRenderer.material = m;
+        }
 
     }
     public void Move(Vector3 dir)

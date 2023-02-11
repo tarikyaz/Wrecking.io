@@ -6377,6 +6377,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e3c5f39349832e49be21eca961fddf6, type: 3}
   Emoji_Image: {fileID: 7073493895018490219}
   showingEmojiDuration: 3
+  bodyRenderer: {fileID: 8930236524976410301}
+  characterRenderer: {fileID: 651515625241669617}
 --- !u!54 &3824947987320270574
 Rigidbody:
   m_ObjectHideFlags: 0
