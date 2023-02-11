@@ -1292,6 +1292,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Joystick: {fileID: 2767796574444055526}
   botsManager: {fileID: 1973047313}
+  cam: {fileID: 1935198695}
+  player: {fileID: 1831945793}
+  camHeight: 75
+  Offset: {x: 0, y: 75, z: 40}
 --- !u!4 &721263614
 Transform:
   m_ObjectHideFlags: 0
@@ -2718,6 +2722,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807989133}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1831945793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1992983571776611705, guid: 8f9d10c3e5ab31a4bba1e2acc6fb01b8, type: 3}
+  m_PrefabInstance: {fileID: 2609293307592721843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02793afdfa46db4c9febf6de0fefcfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1866961585
 GameObject:
   m_ObjectHideFlags: 0
