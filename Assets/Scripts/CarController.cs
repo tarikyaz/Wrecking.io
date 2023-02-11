@@ -102,7 +102,7 @@ public class CarController : MonoBehaviour
     }
     public void Move(Vector3 dir)
     {
-        if (!isDied)
+        if (!isDied && InGameManager.Instance.isFighting)
         {
             smokeVFX.Emit(10);
             isMoving = true;
@@ -209,6 +209,7 @@ public class CarController : MonoBehaviour
             rb.velocity = dir * ballHitForce;
             Destroy(gameObject, 2);
             OnKill?.Invoke();
+            InGameManager.Instance.PlayerDied();
         }
     }
 }
