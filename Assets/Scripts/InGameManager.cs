@@ -128,12 +128,14 @@ public class InGameManager : Singleton<InGameManager>
         winCount++;
         RefresCountTexts();
     }
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         var camPos = player != null && !player.carController.isDied ? player.transform.position : Vector3.zero;
         camPos += Offset;
         cam.transform.position = camPos;
-        cam.transform.LookAt(camPos - Offset);
+        Vector3 lookposition = player != null && player.carController.isDied ? player.transform.position : camPos - Offset;
+        Quaternion targetRot = Quaternion.LookRotation(lookposition - camPos);
+        cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, targetRot, Time.deltaTime * 5);
     }
     void RefresCountTexts()
     {
