@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class CarController : MonoBehaviour
 {
@@ -15,16 +16,49 @@ public class CarController : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] Animator carAnim;
     [SerializeField] ParticleSystem smokeVFX;
-
+    [SerializeField] Sprite[] goodEmojiesArray, badEmojiesArray;
+    [SerializeField] Image Emoji_Image;
+    [SerializeField] float showingEmojiDuration = 3;
+    Coroutine showingEmojiCoroutine;
     bool isMoving = false;
     public Action OnKill;
+    WaitForFixedUpdate fixedUpdate;
     private void OnEnable()
     {
         wrackingBall.OnHitCar += OnHitCar;
     }
+    
+    void ShowEmoji(bool goodEmoji)
+    {
+        float duration = showingEmojiDuration;
+        if (showingEmojiCoroutine!=null)
+        {
+            StopCoroutine(showingEmojiCoroutine);
+        }
+        showingEmojiCoroutine = StartCoroutine(Showing());
+        IEnumerator Showing()
+        {
+            Emoji_Image.transform.localScale = Vector3.zero;
+            Emoji_Image.gameObject.SetActive(true);
+            Emoji_Image.sprite = goodEmoji ? goodEmojiesArray[UnityEngine.Random.Range(0, goodEmojiesArray.Length)] :
+                badEmojiesArray[UnityEngine.Random.Range(0, badEmojiesArray.Length)];
+            while (duration > 0)
+            {
+                Emoji_Image.transform.localScale = Vector3.Lerp(Emoji_Image.transform.localScale, Vector3.one, Time.fixedDeltaTime * 20);
+                Emoji_Image.transform.LookAt(InGameManager.Instance.cam.transform.position);
+                duration -= Time.fixedDeltaTime;
+                yield return fixedUpdate;
+            }
 
-
-
+            while (Emoji_Image.transform.localScale.x > 0)
+            {
+                Emoji_Image.transform.localScale = Vector3.Lerp(Emoji_Image.transform.localScale, Vector3.zero, Time.fixedDeltaTime * 20);
+                yield return fixedUpdate;
+            }
+            Emoji_Image.gameObject.SetActive(false);
+        }
+    }
+    
     private void OnDisable()
     {
         wrackingBall.OnHitCar -= OnHitCar;
@@ -34,6 +68,7 @@ public class CarController : MonoBehaviour
     {
         if (isMoving)
         {
+            ShowEmoji(true);
             Vector3 hitDir = car.transform.position - wrackingBall.transform.position;
             hitDir.Normalize();
             hitDir.y = 1;
@@ -46,6 +81,8 @@ public class CarController : MonoBehaviour
         wrackingBall.SetCar(this);
         NavMeshAgent.speed = 0;
         NavMeshAgent.angularSpeed = 0;
+        fixedUpdate = new WaitForFixedUpdate();
+        Emoji_Image.gameObject.SetActive(false);
 
     }
     public void Move(Vector3 dir)
@@ -144,6 +181,7 @@ public class CarController : MonoBehaviour
     {
         if (!isDied)
         {
+            ShowEmoji(false);
             isDied = true;
             NavMeshAgent.enabled = false;
             Destroy(NavMeshAgent);
