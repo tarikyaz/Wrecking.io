@@ -10,12 +10,14 @@ public class WrackingBall : MonoBehaviour
     public Action<CarController> OnHitCar;
     public Rigidbody rb;
     [SerializeField] Collider coll;
+    [SerializeField] GameObject[] ballsArray = new GameObject[0];
     public void SetCar(CarController car)
     {
         carController = car;
         Physics.IgnoreCollision(coll, car.Coll);
         transform.SetParent(null, true);
         car.OnKill += () => Destroy(gameObject);
+        ballsArray[UnityEngine.Random.Range(0, ballsArray.Length)].SetActive(true);
     }
     private void OnCollisionEnter(Collision collision)
     {
