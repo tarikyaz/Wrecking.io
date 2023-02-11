@@ -21,7 +21,8 @@ public class CarController : MonoBehaviour
     [SerializeField] Image Emoji_Image;
     [SerializeField] float showingEmojiDuration = 3;
     [SerializeField] Renderer bodyRenderer , characterRenderer;
-    Coroutine showingEmojiCoroutine;
+    
+    Coroutine showingEmojiCoroutine, superPowerCoroutine;
     bool isMoving = false;
     WaitForFixedUpdate fixedUpdate;
     bool isSuperPower;
@@ -228,6 +229,37 @@ public class CarController : MonoBehaviour
             Destroy(gameObject, 2);
             OnKill?.Invoke();
             InGameManager.Instance.PlayerDied();
+        }
+    }
+    public void AcrtivateSuperPower(float duration)
+    {
+       
+        if (superPowerCoroutine != null)
+        {
+            StopCoroutine(superPowerCoroutine);
+        }
+        superPowerCoroutine = StartCoroutine(Activating());
+        IEnumerator Activating()
+        {
+            float timeLeft = duration;
+            isSuperPower = true;
+            while (timeLeft >= 0)
+            {
+                yield return fixedUpdate;
+                timeLeft -= Time.fixedDeltaTime;
+            }
+            isSuperPower = false;
+        }
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Gift"))
+        {
+            if (collision.collider.TryGetComponent(out Parachute parachute))
+            {
+                parachute.Collect(this);
+            }
         }
     }
 }

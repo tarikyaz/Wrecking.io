@@ -1915,6 +1915,8 @@ MonoBehaviour:
   Restart_Button: {fileID: 1640039803}
   wall: {fileID: 2465881713827240750}
   pointsParet: {fileID: 755741258}
+  randomDelayForParachute: {x: 1, y: 5}
+  parachutePrefab: {fileID: 8939401872188490559, guid: 614be51062f0b3b4bb8075c23205132a, type: 3}
 --- !u!4 &721263614
 Transform:
   m_ObjectHideFlags: 0
@@ -3729,10 +3731,6 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 321572227274629549, guid: 6b3390fc1774ab2408525cb06927e44b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 32.2068
-      objectReference: {fileID: 0}
-    - target: {fileID: 321572227274629549, guid: 6b3390fc1774ab2408525cb06927e44b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.41
       objectReference: {fileID: 0}
@@ -4449,7 +4447,7 @@ GameObject:
   - component: {fileID: 6715861943749289340}
   m_Layer: 0
   m_Name: AERNA029_Part_11
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4511,7 +4509,7 @@ GameObject:
   - component: {fileID: 7352182830727906343}
   m_Layer: 0
   m_Name: AERNA025_Part_6
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4531,7 +4529,7 @@ GameObject:
   - component: {fileID: 5006029263851904093}
   m_Layer: 0
   m_Name: AERNA029_Part_9
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4605,7 +4603,7 @@ GameObject:
   - component: {fileID: 8520632770450638470}
   m_Layer: 0
   m_Name: AERNA030
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4683,7 +4681,7 @@ GameObject:
   - component: {fileID: 4806604195292845214}
   m_Layer: 0
   m_Name: AERNA026_Part_23
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4711,7 +4709,7 @@ GameObject:
   - component: {fileID: 5847774166711693560}
   m_Layer: 0
   m_Name: AERNA029_Part_6
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4884,7 +4882,7 @@ GameObject:
   - component: {fileID: 7948204532177702964}
   m_Layer: 0
   m_Name: AERNA027_Part_6
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4904,7 +4902,7 @@ GameObject:
   - component: {fileID: 7407058285404364965}
   m_Layer: 0
   m_Name: AERNA026_Part_7
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4982,7 +4980,7 @@ GameObject:
   - component: {fileID: 7628627346273176993}
   m_Layer: 0
   m_Name: AERNA026_Part_22
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5017,7 +5015,7 @@ GameObject:
   - component: {fileID: 8897832792701805359}
   m_Layer: 0
   m_Name: AERNA026_Part_3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5037,7 +5035,7 @@ GameObject:
   - component: {fileID: 4894725829644326470}
   m_Layer: 0
   m_Name: AERNA026_Part_12
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5072,7 +5070,7 @@ GameObject:
   - component: {fileID: 5815417758650318194}
   m_Layer: 0
   m_Name: AERNA026_Part_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5092,7 +5090,7 @@ GameObject:
   - component: {fileID: 7724899958507187097}
   m_Layer: 0
   m_Name: AERNA025_Part_29
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5144,7 +5142,7 @@ GameObject:
   - component: {fileID: 903893398044480868}
   m_Layer: 0
   m_Name: Arena1Section6
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5214,7 +5212,7 @@ GameObject:
   - component: {fileID: 8538640957986842231}
   m_Layer: 0
   m_Name: AERNA025_Part_10
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5234,7 +5232,7 @@ GameObject:
   - component: {fileID: 7701766459128215746}
   m_Layer: 0
   m_Name: AERNA027_Part_7
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5311,7 +5309,7 @@ GameObject:
   - component: {fileID: 4835572831647953469}
   m_Layer: 0
   m_Name: AERNA025_Part_13
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5347,7 +5345,7 @@ GameObject:
   - component: {fileID: 6735426606725549749}
   m_Layer: 0
   m_Name: AERNA025_Part_19
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5367,7 +5365,7 @@ GameObject:
   - component: {fileID: 4070811245996156946}
   m_Layer: 0
   m_Name: AERNA025_Part_2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5402,7 +5400,7 @@ GameObject:
   - component: {fileID: 5978139026823883558}
   m_Layer: 0
   m_Name: AERNA029_Part_5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5437,7 +5435,7 @@ GameObject:
   - component: {fileID: 6841015299179295160}
   m_Layer: 0
   m_Name: AERNA027_Part_5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5588,7 +5586,7 @@ GameObject:
   - component: {fileID: 6370203846509287375}
   m_Layer: 0
   m_Name: AERNA027_Part_12
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5631,7 +5629,7 @@ GameObject:
   - component: {fileID: 7786145317621823340}
   m_Layer: 0
   m_Name: AERNA026_Part_17
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5743,7 +5741,7 @@ GameObject:
   - component: {fileID: 6858104225129909098}
   m_Layer: 0
   m_Name: AERNA029_Part_3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5763,7 +5761,7 @@ GameObject:
   - component: {fileID: 6783865343600146594}
   m_Layer: 0
   m_Name: AERNA026_Part_21
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5833,7 +5831,7 @@ GameObject:
   - component: {fileID: 6193111546660664169}
   m_Layer: 0
   m_Name: AERNA027_Part_11
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5868,7 +5866,7 @@ GameObject:
   - component: {fileID: 6432782422244758256}
   m_Layer: 0
   m_Name: AERNA025_Part_3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5960,7 +5958,7 @@ GameObject:
   - component: {fileID: 6116111966424010889}
   m_Layer: 0
   m_Name: AERNA025_Part_24
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6030,7 +6028,7 @@ GameObject:
   - component: {fileID: 7381152256959987540}
   m_Layer: 0
   m_Name: AERNA025_Part_30
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6050,7 +6048,7 @@ GameObject:
   - component: {fileID: 5348733775293732752}
   m_Layer: 0
   m_Name: AERNA025_Part_14
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6429,7 +6427,7 @@ GameObject:
   - component: {fileID: 8804482044582055339}
   m_Layer: 0
   m_Name: AERNA025_Part_17
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6449,7 +6447,7 @@ GameObject:
   - component: {fileID: 9209538255038583150}
   m_Layer: 0
   m_Name: AERNA025_Part_16
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6500,7 +6498,7 @@ GameObject:
   - component: {fileID: 4772973369324092902}
   m_Layer: 0
   m_Name: AERNA025_Part_15
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6520,7 +6518,7 @@ GameObject:
   - component: {fileID: 9062339104052709416}
   m_Layer: 0
   m_Name: AERNA027_Part_8
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7013,7 +7011,7 @@ GameObject:
   - component: {fileID: 6914412215189461253}
   m_Layer: 0
   m_Name: AERNA029_Part_15
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7127,7 +7125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2609293308382743038, guid: 8f9d10c3e5ab31a4bba1e2acc6fb01b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 2609293308382743038, guid: 8f9d10c3e5ab31a4bba1e2acc6fb01b8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7601,7 +7599,7 @@ GameObject:
   - component: {fileID: 7530015448653965914}
   m_Layer: 0
   m_Name: AERNA029_Part_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7766,7 +7764,7 @@ GameObject:
   - component: {fileID: 5611003992530012406}
   m_Layer: 0
   m_Name: AERNA025_Part_20
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7835,7 +7833,7 @@ GameObject:
   - component: {fileID: 8279826473234042435}
   m_Layer: 0
   m_Name: AERNA026_Part_20
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7947,7 +7945,7 @@ GameObject:
   - component: {fileID: 7376005189986257476}
   m_Layer: 0
   m_Name: AERNA029_Part_10
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7983,7 +7981,7 @@ GameObject:
   - component: {fileID: 8996727318095017751}
   m_Layer: 0
   m_Name: AERNA028_Part_6
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8075,7 +8073,7 @@ GameObject:
   - component: {fileID: 8243561169128777226}
   m_Layer: 0
   m_Name: AERNA029_Part_14
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8118,7 +8116,7 @@ GameObject:
   - component: {fileID: 5001045778929089756}
   m_Layer: 0
   m_Name: AERNA026_Part_10
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8229,7 +8227,7 @@ GameObject:
   - component: {fileID: 9119484099674704206}
   m_Layer: 0
   m_Name: AERNA026_Part_15
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8249,7 +8247,7 @@ GameObject:
   - component: {fileID: 8627936951082691971}
   m_Layer: 0
   m_Name: AERNA027_Part_4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8311,7 +8309,7 @@ GameObject:
   - component: {fileID: 5602962667309837653}
   m_Layer: 0
   m_Name: AERNA027_Part_15
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8604,7 +8602,7 @@ GameObject:
   - component: {fileID: 6588044650566273068}
   m_Layer: 0
   m_Name: AERNA028_Part_4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8682,7 +8680,7 @@ GameObject:
   - component: {fileID: 8256598981292953761}
   m_Layer: 0
   m_Name: AERNA028_Part_9
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8821,7 +8819,7 @@ GameObject:
   - component: {fileID: 8115931918217248286}
   m_Layer: 0
   m_Name: AERNA027_Part_3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9041,7 +9039,7 @@ GameObject:
   - component: {fileID: 7137046225786282965}
   m_Layer: 0
   m_Name: AERNA025_Part_22
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9111,7 +9109,7 @@ GameObject:
   - component: {fileID: 9021218043568612656}
   m_Layer: 0
   m_Name: AERNA027_Part_20
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9154,7 +9152,7 @@ GameObject:
   - component: {fileID: 5547815139723704590}
   m_Layer: 0
   m_Name: AERNA026_Part_5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9189,7 +9187,7 @@ GameObject:
   - component: {fileID: 9006770957010744903}
   m_Layer: 0
   m_Name: AERNA026_Part_9
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9232,7 +9230,7 @@ GameObject:
   - component: {fileID: 5729025205705502132}
   m_Layer: 0
   m_Name: AERNA026_Part_16
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9799,7 +9797,7 @@ GameObject:
   - component: {fileID: 8712203787787582611}
   m_Layer: 0
   m_Name: AERNA028_Part_7
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9872,7 +9870,7 @@ GameObject:
   - component: {fileID: 6131829352044352603}
   m_Layer: 0
   m_Name: AERNA025_Part_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9907,7 +9905,7 @@ GameObject:
   - component: {fileID: 8663836905061631455}
   m_Layer: 0
   m_Name: AERNA026_Part_11
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9950,7 +9948,7 @@ GameObject:
   - component: {fileID: 7534119079763694525}
   m_Layer: 0
   m_Name: AERNA025_Part_5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10072,7 +10070,7 @@ GameObject:
   - component: {fileID: 5398945525556508967}
   m_Layer: 0
   m_Name: AERNA027_Part_17
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10274,7 +10272,7 @@ GameObject:
   - component: {fileID: 7684312096959638774}
   m_Layer: 0
   m_Name: AERNA025_Part_8
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10446,7 +10444,7 @@ GameObject:
   - component: {fileID: 7048638053538350154}
   m_Layer: 0
   m_Name: AERNA026_Part_14
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10466,7 +10464,7 @@ GameObject:
   - component: {fileID: 7507823406468661608}
   m_Layer: 0
   m_Name: AERNA026_Part_19
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10502,7 +10500,7 @@ GameObject:
   - component: {fileID: 5672911194127808496}
   m_Layer: 0
   m_Name: AERNA029_Part_4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11000,7 +10998,7 @@ GameObject:
   - component: {fileID: 7309403665075844622}
   m_Layer: 0
   m_Name: AERNA026_Part_13
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11120,7 +11118,7 @@ GameObject:
   - component: {fileID: 5958732936835639566}
   m_Layer: 0
   m_Name: AERNA026_Part_6
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11257,7 +11255,7 @@ GameObject:
   - component: {fileID: 7559266885039226701}
   m_Layer: 0
   m_Name: AERNA025_Part_4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11327,7 +11325,7 @@ GameObject:
   - component: {fileID: 6080979402674589077}
   m_Layer: 0
   m_Name: AERNA025_Part_23
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11662,7 +11660,7 @@ GameObject:
   - component: {fileID: 6276182704034464611}
   m_Layer: 0
   m_Name: AERNA026_Part_2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11804,7 +11802,7 @@ GameObject:
   - component: {fileID: 6367458521805494866}
   m_Layer: 0
   m_Name: AERNA026_Part_18
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11983,7 +11981,7 @@ GameObject:
   - component: {fileID: 6391674495186823014}
   m_Layer: 0
   m_Name: AERNA027_Part_10
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12113,7 +12111,7 @@ GameObject:
   - component: {fileID: 6715687190246032708}
   m_Layer: 0
   m_Name: AERNA029_Part_13
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12164,7 +12162,7 @@ GameObject:
   - component: {fileID: 7855849836246799685}
   m_Layer: 0
   m_Name: AERNA028_Part_2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12279,7 +12277,7 @@ GameObject:
   - component: {fileID: 7942582451048768771}
   m_Layer: 0
   m_Name: AERNA026_Part_4
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12299,7 +12297,7 @@ GameObject:
   - component: {fileID: 9028813099141481504}
   m_Layer: 0
   m_Name: AERNA027_Part_16
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12319,7 +12317,7 @@ GameObject:
   - component: {fileID: 6715020308432787531}
   m_Layer: 0
   m_Name: AERNA025_Part_27
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12721,7 +12719,7 @@ GameObject:
   - component: {fileID: 6893046832962003899}
   m_Layer: 0
   m_Name: AERNA028_Part_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12885,7 +12883,7 @@ GameObject:
   - component: {fileID: 7965576494058316368}
   m_Layer: 0
   m_Name: AERNA025_Part_28
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12995,7 +12993,7 @@ GameObject:
   - component: {fileID: 9156629962809240109}
   m_Layer: 0
   m_Name: AERNA029_Part_7
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13095,7 +13093,7 @@ GameObject:
   - component: {fileID: 7311860723692697202}
   m_Layer: 0
   m_Name: AERNA025_Part_26
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13629,7 +13627,7 @@ GameObject:
   - component: {fileID: 7579725307779333338}
   m_Layer: 0
   m_Name: AERNA026_Part_24
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13849,7 +13847,7 @@ GameObject:
   - component: {fileID: 7718237376500574474}
   m_Layer: 0
   m_Name: AERNA025_Part_11
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14016,7 +14014,7 @@ GameObject:
   - component: {fileID: 7789385004322761843}
   m_Layer: 0
   m_Name: AERNA027_Part_2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14111,7 +14109,7 @@ GameObject:
   - component: {fileID: 8954038486766238342}
   m_Layer: 0
   m_Name: AERNA025_Part_7
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14241,7 +14239,7 @@ GameObject:
   - component: {fileID: 9094517099416338251}
   m_Layer: 0
   m_Name: AERNA028_Part_3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14333,7 +14331,7 @@ GameObject:
   - component: {fileID: 7992861439547069308}
   m_Layer: 0
   m_Name: AERNA027_Part_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14391,7 +14389,7 @@ GameObject:
   - component: {fileID: 8032836520479070409}
   m_Layer: 0
   m_Name: AERNA027_Part_13
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14513,7 +14511,7 @@ GameObject:
   - component: {fileID: 8117392517371980762}
   m_Layer: 0
   m_Name: AERNA027_Part_14
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14605,7 +14603,7 @@ GameObject:
   - component: {fileID: 8186305971485058911}
   m_Layer: 0
   m_Name: AERNA026_Part_25
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14742,7 +14740,7 @@ GameObject:
   - component: {fileID: 8254860720024754831}
   m_Layer: 0
   m_Name: AERNA025_Part_12
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14902,7 +14900,7 @@ GameObject:
   - component: {fileID: 8342020126143626022}
   m_Layer: 0
   m_Name: AERNA027_Part_19
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15107,7 +15105,7 @@ GameObject:
   - component: {fileID: 8886140318284698388}
   m_Layer: 0
   m_Name: AERNA025_Part_21
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15199,7 +15197,7 @@ GameObject:
   - component: {fileID: 8692688416221513844}
   m_Layer: 0
   m_Name: AERNA028_Part_5
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15321,7 +15319,7 @@ GameObject:
   - component: {fileID: 8756615526440415129}
   m_Layer: 0
   m_Name: AERNA025_Part_18
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15371,7 +15369,7 @@ GameObject:
   - component: {fileID: 8763120490265181359}
   m_Layer: 0
   m_Name: AERNA025_Part_9
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15509,7 +15507,7 @@ GameObject:
   - component: {fileID: 8856341063676667762}
   m_Layer: 0
   m_Name: AERNA027_Part_9
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15649,7 +15647,7 @@ GameObject:
   - component: {fileID: 8918434513895860508}
   m_Layer: 0
   m_Name: AERNA028_Part_10
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15744,7 +15742,7 @@ GameObject:
   - component: {fileID: 8969385176400657144}
   m_Layer: 0
   m_Name: AERNA029_Part_8
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16131,7 +16129,7 @@ GameObject:
   - component: {fileID: 9076371188301309400}
   m_Layer: 0
   m_Name: AERNA028_Part_8
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16181,7 +16179,7 @@ GameObject:
   - component: {fileID: 9080228132621038294}
   m_Layer: 0
   m_Name: AERNA026_Part_8
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16231,7 +16229,7 @@ GameObject:
   - component: {fileID: 9088088140861984954}
   m_Layer: 0
   m_Name: AERNA027_Part_18
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16319,7 +16317,7 @@ GameObject:
   - component: {fileID: 9113642166588170259}
   m_Layer: 0
   m_Name: AERNA025_Part_25
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16441,7 +16439,7 @@ GameObject:
   - component: {fileID: 9121128524670961128}
   m_Layer: 0
   m_Name: AERNA029_Part_12
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16563,7 +16561,7 @@ GameObject:
   - component: {fileID: 9179836131857217885}
   m_Layer: 0
   m_Name: AERNA029_Part_2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

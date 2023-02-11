@@ -21,7 +21,8 @@ public class InGameManager : Singleton<InGameManager>
     [SerializeField] Button Restart_Button;
     [SerializeField] Transform wall;
     [SerializeField] Transform pointsParet;
-
+    [SerializeField] Vector2 randomDelayForParachute = new Vector2(4, 10);
+    [SerializeField] Parachute parachutePrefab;
     Sequence countingSeq;
     int alivePlyers;
     internal bool isFighting = false;
@@ -68,8 +69,27 @@ public class InGameManager : Singleton<InGameManager>
         Restart_Button.gameObject.SetActive(false);
         Restart_Button.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
         RefresCountTexts();
+        StartCoroutine(ParachutteGenerator());
     }
 
+    IEnumerator ParachutteGenerator()
+    {
+        yield return new WaitUntil(() => isFighting == true);
+        while (isFighting)
+        {
+            Transform lastPointT = null;
+
+            yield return new WaitForSeconds(UnityEngine.Random.Range(randomDelayForParachute.x, randomDelayForParachute.y));
+            if (isFighting)
+            {
+                var p = Instantiate(parachutePrefab);
+                lastPointT = GetRandomPoint(lastPointT);
+                p.transform.position = lastPointT.position + Vector3.up * 50;
+                p.transform.rotation = Quaternion.identity;
+                yield return new WaitUntil(() => p == null);
+            }
+        }
+    }
     public void PlayerDied()
     {
         alivePlyers--;
