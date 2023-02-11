@@ -96,26 +96,43 @@ public class CarController : MonoBehaviour
             Stop();
         }
     }
+    private void FixedUpdate()
+    {
+        UpdateBallPos();
+    }
+    private void UpdateBallPos()
+    {
+        if (isDied)
+        {
+            return;
+        }
+        Vector3 targetBallPos = transform.TransformPoint(0, 0, -distanceFromBall);
+        float t = Time.fixedDeltaTime * ballMovementSmoothness;
+        targetBallPos.y = wrackingBall.rb.position.y;
+        if (targetBallPos.y > 2)
+        {
+            targetBallPos.y = 2;
+        }
+        else if (targetBallPos.y < 1)
+        {
+            targetBallPos.y = 1;
+        }
+        wrackingBall.rb.position = Vector3.Lerp(wrackingBall.rb.position, targetBallPos, t);
+    }
     private void LateUpdate()
     {
-        if (!isDied)
-        {
-            Vector3 targetBallPos = transform.TransformPoint(0, 0, -distanceFromBall);
-            float t = Time.fixedTime * ballMovementSmoothness;
-            targetBallPos.y = wrackingBall.rb.position.y;
-            if (targetBallPos.y > 2)
-            {
-                targetBallPos.y = 2;
-            }
-            else if (targetBallPos.y < 1)
-            {
-                targetBallPos.y = 1;
-            }
-            wrackingBall.rb.position = Vector3.Lerp(wrackingBall.rb.position, targetBallPos, t);
-            lineRenderer.SetPosition(0, lineRenderer.transform.position);
-            lineRenderer.SetPosition(1, wrackingBall.transform.position);
-        }
+        UpdateLine();
     }
+    private void UpdateLine()
+    {
+        if (isDied)
+        {
+            return;
+        }
+        lineRenderer.SetPosition(0, lineRenderer.transform.position);
+        lineRenderer.SetPosition(1, wrackingBall.transform.position);
+    }
+
     internal void Stop()
     {
         isMoving = false;

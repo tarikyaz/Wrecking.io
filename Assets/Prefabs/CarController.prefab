@@ -6188,9 +6188,9 @@ MonoBehaviour:
   Coll: {fileID: 71339828812331617}
   NavMeshAgent: {fileID: 4031216791259431690}
   rb: {fileID: 3824947987320270574}
-  speed: 800
+  speed: 1000
   distanceFromBall: 8
-  ballMovementSmoothness: 0.0125
+  ballMovementSmoothness: 20.7
   ballHitForce: 50
   wrackingBall: {fileID: 4823964875944301654}
   lineRenderer: {fileID: 7786330847074203118}
