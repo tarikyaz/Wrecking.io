@@ -34,7 +34,7 @@ public class BotController : MonoBehaviour
             carController.Stop();
             if (InGameManager.Instance != null)
             {
-                targetT = InGameManager.Instance.botsManager.GetRandomPoint(targetT);
+                targetT = InGameManager.Instance.GetRandomPoint(targetT);
                 timer = 0;
             }
         }

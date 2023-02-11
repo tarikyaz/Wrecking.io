@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class BotsManager : MonoBehaviour
 {
-    [SerializeField] Transform pointsParet;
     [SerializeField] BotController botPrefab;
     public int NumOfBots = 3;
-    Transform[] randomPointsInArenaArray = new Transform[0];
     List<BotController> botsList = new List<BotController>();
     private void Start()
     {
@@ -17,9 +15,9 @@ public class BotsManager : MonoBehaviour
 
     private void InitBots()
     {
-        InitPoints();
+        InGameManager.Instance.InitPoints();
         List<Transform> availablePosList = new List<Transform>();
-        availablePosList.AddRange(randomPointsInArenaArray);
+        availablePosList.AddRange(InGameManager.Instance.randomPointsInArenaArray);
         for (int i = 0; i < NumOfBots; i++)
         {
             BotController newBot = Instantiate(botPrefab);
@@ -31,25 +29,7 @@ public class BotsManager : MonoBehaviour
         }
     }
 
-    public Transform GetRandomPoint(Transform lastTarget)
-    {
-        List<Transform> listOfRandomPoints = new List<Transform>();
-        listOfRandomPoints.AddRange(randomPointsInArenaArray);
-        if (listOfRandomPoints.Contains(lastTarget))
-        {
-            listOfRandomPoints.Remove(lastTarget);
-        }
-        var point = listOfRandomPoints[UnityEngine.Random.Range(0, listOfRandomPoints.Count)];
-        return point;
-    }
 
-    private void InitPoints()
-    {
-        if (randomPointsInArenaArray.Length < 1)
-        {
-            var points = pointsParet.GetComponentsInChildren<Transform>().ToList();
-            points.Remove(pointsParet);
-            randomPointsInArenaArray = points.ToArray();
-        }
-    }
+
+
 }
