@@ -24,7 +24,7 @@ public class CarController : MonoBehaviour
     Coroutine showingEmojiCoroutine;
     bool isMoving = false;
     WaitForFixedUpdate fixedUpdate;
-    
+    bool isSuperPower;
     private void OnEnable()
     {
         wrackingBall.OnHitCar += OnHitCar;
@@ -158,18 +158,36 @@ public class CarController : MonoBehaviour
         {
             return;
         }
-        Vector3 targetBallPos = transform.TransformPoint(0, 0, -distanceFromBall);
-        float t = Time.fixedDeltaTime * ballMovementSmoothness;
-        targetBallPos.y = wrackingBall.rb.position.y;
-        if (targetBallPos.y > 2)
+        if (isSuperPower)
         {
-            targetBallPos.y = 2;
+            Quaternion q = Quaternion.AngleAxis(Time.time*.5f,  Vector3.up);
+            Vector3 targetBallPos = q * (wrackingBall.rb.transform.position - transform.position).normalized *5+ transform.position;
+            if (targetBallPos.y > 2)
+            {
+                targetBallPos.y = 2;
+            }
+            else if (targetBallPos.y < 1)
+            {
+                targetBallPos.y = 1;
+            }
+            wrackingBall.rb.MovePosition(targetBallPos);
         }
-        else if (targetBallPos.y < 1)
+        else
         {
-            targetBallPos.y = 1;
+            Vector3 targetBallPos = transform.TransformPoint(0, 0, -distanceFromBall);
+            float t = Time.fixedDeltaTime * ballMovementSmoothness;
+            targetBallPos.y = wrackingBall.rb.position.y;
+            if (targetBallPos.y > 2)
+            {
+                targetBallPos.y = 2;
+            }
+            else if (targetBallPos.y < 1)
+            {
+                targetBallPos.y = 1;
+            }
+            wrackingBall.rb.position = Vector3.Lerp(wrackingBall.rb.position, targetBallPos, t);
         }
-        wrackingBall.rb.position = Vector3.Lerp(wrackingBall.rb.position, targetBallPos, t);
+
     }
     private void LateUpdate()
     {
