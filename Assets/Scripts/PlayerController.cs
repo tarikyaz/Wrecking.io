@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Joystick joystick => InGameManager.Instance.Joystick;
-    [SerializeField] CarController carController;
+    public CarController carController;
     bool movmentUnlocked = false;
     private void Start()
     {
@@ -13,11 +13,16 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
         if (carController ==null)
         {
             return;
         }
-        Transform camT = Camera.main.transform;
+        if (carController.isDied)
+        {
+            return;
+        }
+        Transform camT = InGameManager.Instance.cam.transform;
         if (joystick.IsHolding)
         {
             if (joystick.Direction.magnitude > .7f)
