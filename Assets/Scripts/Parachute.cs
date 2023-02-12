@@ -8,30 +8,42 @@ public class Parachute : MonoBehaviour
 {
     [SerializeField] Transform parachute;
     [SerializeField] float superPowerDuration = 5;
-    internal bool isActive;
+    internal bool topDisabled;
     bool isCollceted = false;
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isActive)
+        if (!topDisabled)
         {
             if (collision.collider.CompareTag("Ground"))
             {
-                parachute.transform.SetParent(null, true);
-                parachute.DOScale(0, 2).OnComplete(() => {
-                    Destroy(parachute.gameObject); 
-                    Destroy(gameObject, 10); });
-                    isActive = true;
+                DisableTop();
             }
+        }
+    }
+
+    private void DisableTop()
+    {
+        if (!topDisabled)
+        {
+            topDisabled = true;
+            parachute.transform.SetParent(null, true);
+            parachute.DOScale(0, 2).OnComplete(() =>
+            {
+                Destroy(parachute.gameObject);
+                Destroy(gameObject, 10);
+            });
         }
     }
 
     internal void Collect(CarController carController)
     {
-        if (!isCollceted && isActive)
+        if (!isCollceted)
         {
             isCollceted = true;
+            DisableTop();
             carController.AcrtivateSuperPower(superPowerDuration);
-            DOVirtual.DelayedCall(3, () => Destroy(gameObject));
+            transform.DOScale(0, .5f).OnComplete(() => Destroy(gameObject));
         }
     }
 }
