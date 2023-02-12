@@ -6308,6 +6308,7 @@ GameObject:
   - component: {fileID: 3824947987320270574}
   - component: {fileID: 71339828812331617}
   - component: {fileID: 4031216791259431690}
+  - component: {fileID: 1167597269628820687}
   m_Layer: 0
   m_Name: CarController
   m_TagString: Car
@@ -6430,6 +6431,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &1167597269628820687
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3824947987320270573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2735863, y: 2.8768094, z: 3.1915793}
+  m_Center: {x: -0.10288286, y: 0.9384049, z: 1.0957904}
 --- !u!1 &3885968977892909572
 GameObject:
   m_ObjectHideFlags: 0

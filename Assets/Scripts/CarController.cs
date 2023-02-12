@@ -233,7 +233,7 @@ public class CarController : MonoBehaviour
     }
     public void AcrtivateSuperPower(float duration)
     {
-       
+        ShowEmoji(true);
         if (superPowerCoroutine != null)
         {
             StopCoroutine(superPowerCoroutine);
@@ -259,6 +259,16 @@ public class CarController : MonoBehaviour
             if (collision.collider.TryGetComponent(out Parachute parachute))
             {
                 parachute.Collect(this);
+            }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            if (other.TryGetComponent(out Obstacle obstacle))
+            {
+                obstacle.Collect(this);
             }
         }
     }
