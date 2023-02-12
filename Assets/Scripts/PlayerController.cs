@@ -5,20 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Joystick joystick => InGameManager.Instance.Joystick;
-    public CarController carController;
+    public CarController _CarController;
     bool movmentUnlocked = false;
     private void Start()
     {
-        carController.NavMeshAgent.enabled = false;
+        _CarController.NavMeshAgent.enabled = false;
     }
     private void FixedUpdate()
     {
 
-        if (carController ==null)
+        if (_CarController ==null)
         {
             return;
         }
-        if (carController.isDied)
+        if (_CarController.isDied)
         {
             return;
         }
@@ -35,12 +35,12 @@ public class PlayerController : MonoBehaviour
                 var camDir = camT.TransformDirection(movmentDir);
                 camDir.y = 0;
                 camDir.Normalize();
-                carController.Move(camDir);
+                _CarController.Move(camDir);
             }
         }
         else
         {
-            carController.Stop();
+            _CarController.Stop();
             movmentUnlocked = false;
 
         }

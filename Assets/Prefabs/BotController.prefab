@@ -94,10 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c84841361082e64c85cd09da530795e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carController: {fileID: 8671210200631133452}
-  navMeshAgent: {fileID: 8841516053660362985}
---- !u!195 &8841516053660362985 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 4031216791259431690, guid: 68592976a97ed914d83079b69f043d63, type: 3}
-  m_PrefabInstance: {fileID: 5567190560605547491}
-  m_PrefabAsset: {fileID: 0}
+  _CarController: {fileID: 8671210200631133452}
+  durationToChangeRandomPoint: 5

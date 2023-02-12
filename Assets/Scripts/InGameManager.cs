@@ -94,7 +94,7 @@ public class InGameManager : Singleton<InGameManager>
     {
         alivePlyers--;
         playersLeft_Text.text = alivePlyers.ToString();
-        if (player.carController.isDied)
+        if (player._CarController.isDied)
         {
             Lost();
             return;
@@ -115,6 +115,11 @@ public class InGameManager : Singleton<InGameManager>
         isFighting = false;
         loseCount++;
         RefresCountTexts();
+        foreach (var bot in botsManager.botsList)
+        {
+            bot._CarController.PlayCharacterAnimation(true,-1);
+        }
+        player._CarController.PlayCharacterAnimation(false,-1);
     }
     void Win()
     {
@@ -127,13 +132,19 @@ public class InGameManager : Singleton<InGameManager>
         wall.DOScaleZ(0, 2).OnComplete(()=> { wall.gameObject.SetActive(false); });
         winCount++;
         RefresCountTexts();
+        foreach (var bot in botsManager.botsList)
+        {
+            bot._CarController.PlayCharacterAnimation(false, -1);
+        }
+        player._CarController.PlayCharacterAnimation(true, -1);
+        cam.DOFieldOfView(13, 3);
     }
     private void FixedUpdate()
     {
-        var camPos = player != null && !player.carController.isDied ? player.transform.position : Vector3.zero;
+        var camPos = player != null && !player._CarController.isDied ? player.transform.position : Vector3.zero;
         camPos += Offset;
         cam.transform.position = camPos;
-        Vector3 lookposition = player != null && player.carController.isDied ? player.transform.position : camPos - Offset;
+        Vector3 lookposition = player != null && player._CarController.isDied ? player.transform.position : camPos - Offset;
         Quaternion targetRot = Quaternion.LookRotation(lookposition - camPos);
         cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, targetRot, Time.deltaTime * 5);
     }

@@ -6,14 +6,14 @@ using UnityEngine.AI;
 
 public class BotController : MonoBehaviour
 {
-    [SerializeField] CarController carController;
+    public CarController _CarController;
     [SerializeField] float durationToChangeRandomPoint = 5;
     Transform targetT;
     float timer = 0;
 
     private void FixedUpdate()
     {
-        if (carController.isDied)
+        if (_CarController.isDied)
         {
             return;
         }
@@ -23,15 +23,15 @@ public class BotController : MonoBehaviour
             targetPos = targetT.position;
         }
         targetPos.y = 0;
-        if (targetPos != Vector3.zero && timer <= durationToChangeRandomPoint && carController.NavMeshAgent.isActiveAndEnabled && Vector3.Distance(targetPos, transform.position) > 5)
+        if (targetPos != Vector3.zero && timer <= durationToChangeRandomPoint && _CarController.NavMeshAgent.isActiveAndEnabled && Vector3.Distance(targetPos, transform.position) > 5)
         {
             timer += Time.fixedDeltaTime;
-            carController.NavMeshAgent.SetDestination(targetPos);
-            carController.Move(carController.NavMeshAgent.steeringTarget - transform.position);
+            _CarController.NavMeshAgent.SetDestination(targetPos);
+            _CarController.Move(_CarController.NavMeshAgent.steeringTarget - transform.position);
         }
         else
         {
-            carController.Stop();
+            _CarController.Stop();
             if (InGameManager.Instance != null)
             {
                 targetT = InGameManager.Instance.GetRandomPoint(targetT);

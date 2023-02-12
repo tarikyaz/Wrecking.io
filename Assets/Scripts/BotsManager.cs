@@ -7,7 +7,7 @@ public class BotsManager : MonoBehaviour
 {
     [SerializeField] BotController botPrefab;
     public int NumOfBots = 3;
-    List<BotController> botsList = new List<BotController>();
+    internal List<BotController> botsList = new List<BotController>();
     private void Start()
     {
         InitBots();

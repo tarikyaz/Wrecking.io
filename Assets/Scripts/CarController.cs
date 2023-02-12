@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,17 +21,44 @@ public class CarController : MonoBehaviour
     [SerializeField] Sprite[] goodEmojiesArray, badEmojiesArray;
     [SerializeField] Image Emoji_Image;
     [SerializeField] float showingEmojiDuration = 3;
-    [SerializeField] Renderer bodyRenderer , characterRenderer;
+    [SerializeField] Renderer bodyRenderer , normalCharacterRenderer, loseCharacterRenderer, winCharacterRenderer;
+    [SerializeField] GameObject normalCharacter, winCharacter, loseCharacter;
     
     Coroutine showingEmojiCoroutine, superPowerCoroutine;
     bool isMoving = false;
     WaitForFixedUpdate fixedUpdate;
     bool isSuperPower;
+    Tween playerAnimationTween;
     private void OnEnable()
     {
         wrackingBall.OnHitCar += OnHitCar;
     }
-    
+    public void PlayCharacterAnimation(bool isWin, float duration)
+    {
+        if (normalCharacter!=null)
+        {
+            normalCharacter.gameObject.SetActive(false);
+            playerAnimationTween.Pause();
+            playerAnimationTween.Kill();
+            if (isWin)
+            {
+                winCharacter.SetActive(true);
+            }
+            else
+            {
+                loseCharacter.SetActive(true);
+            }
+            if (duration > 0)
+            {
+
+                playerAnimationTween = DOVirtual.DelayedCall(duration, () => {
+                    normalCharacter.gameObject.SetActive(true);
+                    loseCharacter.SetActive(false);
+                    winCharacter.SetActive(false);
+                });
+            }
+        }
+    }
     void ShowEmoji(bool goodEmoji)
     {
         float duration = showingEmojiDuration;
@@ -72,10 +100,12 @@ public class CarController : MonoBehaviour
         if (isMoving)
         {
             ShowEmoji(true);
+            PlayCharacterAnimation(true, 3);
             Vector3 hitDir = car.transform.position - wrackingBall.transform.position;
             hitDir.Normalize();
             hitDir.y = 1;
             car.Kill(hitDir);
+
         }
     }
     private void Start()
@@ -93,13 +123,17 @@ public class CarController : MonoBehaviour
             bodyRenderer.material = m;
         }
 
-        ms = characterRenderer.materials;
+        ms = normalCharacterRenderer.materials;
         foreach (var m in ms)
         {
             m.color = new Color(UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), UnityEngine.Random.Range(0.0f, 1.0f), 1);
-            bodyRenderer.material = m;
         }
+        normalCharacterRenderer.materials = ms;
+        winCharacterRenderer.materials = ms;
+        loseCharacterRenderer.materials = ms;
 
+        winCharacter.SetActive(false);
+        loseCharacter.SetActive(false);
     }
     public void Move(Vector3 dir)
     {
@@ -215,6 +249,7 @@ public class CarController : MonoBehaviour
     {
         if (!isDied)
         {
+            PlayCharacterAnimation(false, -1);
             ShowEmoji(false);
             isDied = true;
             NavMeshAgent.enabled = false;
